@@ -1,41 +1,41 @@
+import Form from "./components/Form"
+import List from "./components/List"
+import Search from "./components/Search"
+import { BaseColaboradores } from "./api/BaseColaboradores"
+import { useState } from "react"
 
 
 const App = () => {
-  
+
+  const [workers, setWorkers] = useState(BaseColaboradores);
+  const [nameWorker, setNameWorker] = useState("");
+  const [emailWorker, setEmailWorker] = useState("");
+  const [search, setSearch] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    
+
+    const newWorker = {
+      id: Date.now(),
+      nombre: nameWorker,
+      correo: emailWorker
+    }
+
+    setWorkers([...workers, newWorker]);
+
+    setNameWorker("");
+    setEmailWorker("");
+  }
 
   return (
     <>
-      <form action="">
-        <label htmlFor="">Búsqueda:</label>
-        <input type="text" />
-      </form>
+      <Search onChange={(e) => setSearch(e.target.value)}></Search>
       <hr />
-      <form>
-        <label htmlFor="">Nombre del Colaborador: </label>
-        <input type="text" name="" id="" placeholder="nombre"/>
-        <br />
-        <label htmlFor="">Correo colaborador: </label>
-        <input type="text" name="" id="" placeholder="correo"/>
-        <br />
-        <button type="submit">Agregar colaborador</button>
-      </form>
+      <Form handle={handleSubmit} trabajador={setNameWorker} correo={setEmailWorker} workerVal={nameWorker} emailVal={emailWorker}></Form>
       <hr />
-      <table>
-        <thead>
-          <tr>
-            <td>Id</td>
-            <td>Nombre</td>
-            <td>Correo</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>Colaborador 0</td>
-            <td>colaborador0@colaborador0.com</td>
-          </tr>
-        </tbody>
-      </table>
+      <List trabajadores={workers} busqueda={search}></List>
     </>
   )
 }
