@@ -1,3 +1,7 @@
+*{
+    font-family: 'Oxygen Mono', monospace;
+}
+
 .form-container{
     display: flex;
     flex-direction: row;

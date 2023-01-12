@@ -14,7 +14,7 @@ const Form = ({ handle, trabajador, correo, workerVal, emailVal }) => {
                 </div>
                 <br />
                 {emailVal.includes('@') && emailVal.trim().length > 2 && workerVal.trim().length >= 2 ?
-                    <button type="submit">Agregar colaborador</button> : null}
+                    <button className="btn btn-primary" type="submit">Agregar colaborador</button> : null}
             </div>
 
 
