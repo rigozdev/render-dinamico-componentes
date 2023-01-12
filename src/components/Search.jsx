@@ -1,8 +1,11 @@
 const Search = ({onChange}) => {
     return (
         <form action="">
-            <label htmlFor="">Búsqueda:</label>
-            <input type="text" onChange={onChange}/>
+            <div className="search-container">
+                <label className="form-label labelSearch" htmlFor="">Búsqueda:</label>
+                <input className="form-control inputSearch" type="text" onChange={onChange}/>
+            </div>
+            
         </form>
     );
 }

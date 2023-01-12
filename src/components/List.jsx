@@ -1,7 +1,8 @@
 const List = ({ trabajadores, busqueda }) => {
 
     return (
-        <table className="table table-striped">
+        <div className="table-container">
+            <table className="table table-striped">
             <thead>
                 <tr>
                     <td scope="col"><b>Nombre</b> </td>
@@ -16,6 +17,8 @@ const List = ({ trabajadores, busqueda }) => {
                 })}
             </tbody>
         </table>
+        </div>
+        
     );
 }
 

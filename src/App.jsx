@@ -10,12 +10,10 @@ const App = () => {
   const [workers, setWorkers] = useState(BaseColaboradores);
   const [nameWorker, setNameWorker] = useState("");
   const [emailWorker, setEmailWorker] = useState("");
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    
+    e.preventDefault();    
 
     const newWorker = {
       id: Date.now(),
@@ -31,10 +29,10 @@ const App = () => {
 
   return (
     <>
-      <Search onChange={(e) => setSearch(e.target.value)}></Search>
-      <hr />
+      <header className="header">
+        <Search onChange={(e) => setSearch(e.target.value)}></Search>
+      </header>
       <Form handle={handleSubmit} trabajador={setNameWorker} correo={setEmailWorker} workerVal={nameWorker} emailVal={emailWorker}></Form>
-      <hr />
       <List trabajadores={workers} busqueda={search}></List>
     </>
   )
